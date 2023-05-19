@@ -1,18 +1,15 @@
-var express = require('express');
-var router = require('router');
-var bodyParser = require('body-parser');
+const express = require('express');
+const exphbs = require('express-handlebars');
+var sassMiddleware = require('node-sass-middleware')
 var path = require('path');
-const mongoose = require('mongoose');
-const res = require('express/lib/response');
-const routes = require('./server/routes/allRoute');
+const app = express();
 const sessions = require('express-session');
-const multer = require('multer');
+const routes = require('./server/routes/allroute');
+var bodyParser = require('body-parser');
 
-require('dotenv').config();
-
-var app = express();
 
 const oneDay = 1000 * 60 * 60 * 24;
+
 
 app.use(sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
@@ -21,26 +18,47 @@ app.use(sessions({
     resave: false
 }));
 
-app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname, '/public/')));
-app.use(express.static(__dirname + '/public'));
-app.use('/uploads', express.static('uploads'));
+app.engine('hbs', exphbs.engine({
+    defaultLayout: 'main',
+    
+    helpers: {
+        todaysDate:(date) => new Date(date),   
+        helpers: require(__dirname +"/public/javascripts/helpers.js").helpers,
 
-//Set the view engine to ejs
-app.set('view engine', 'ejs');
+      },
+    extname: '.hbs'
+  }));
+
+app.set('view engine', 'hbs');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+//console.log( __dirname + '/public/scss');
+app.use(
+  sassMiddleware ({
+      src: __dirname + '/public/scss', 
+      dest: __dirname + '/public',
+      debug: true,       
+  })
+);   
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 
 
 app.use('/', routes);
 app.use('*', (req, res) => {
-    res.status(404).redirect('/en/in/404');
+    res.status(404).render('404');
   });
 
 
 
 
-
-app.listen(3000);
-console.log('Server is running');
+// port where app is served
+app.listen(4000, () => {
+    console.log('The web server has started on port 4000');
+});

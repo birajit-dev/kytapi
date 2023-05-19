@@ -16,4 +16,4 @@ db.once('open', function(){
 });
 
 // Models
-require('./topStories');
+require('./allnews');

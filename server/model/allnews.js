@@ -46,6 +46,9 @@ const followUser = new mongoose.Schema({
     author:{
         type:String
     },
+    ibns_id:{
+        type:String
+    },
     update_date:{
         type:String
     }
@@ -53,8 +56,5 @@ const followUser = new mongoose.Schema({
 
 });
 
-
 followUser.plugin(AutoIncrement, {id:'news_seq',inc_field: 'news_id'});
-
-
 module.exports = mongoose.model('allposts', followUser, 'allpost');
