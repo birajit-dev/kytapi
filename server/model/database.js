@@ -16,4 +16,4 @@ db.once('open', function(){
 });
 
 // Models
-require('./allnews');
+require('./Panchang');
