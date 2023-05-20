@@ -9,6 +9,8 @@ const WebViewController = require('../controller/WebRenderController');
 
 // CLIENT SIDE ROUTE//
 router.get('/', WebViewController.HomePageView); // HOMEPAGE
+router.get('/panchang', WebViewController.PanchangPageView); // HOMEPAGE
+
 
 
 

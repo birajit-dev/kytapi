@@ -12,11 +12,20 @@ const PanchangModel = require('../model/Panchang');
         //HomePage View for Front-End
         exports.HomePageView = async(req, res) =>{
             try{
-                res.render('home');
+                res.render('homex');
             }catch(error){
                 res.status(400).json({message: error.message})
             }
         }
+
+        exports.PanchangPageView = async(req, res) =>{
+            try{
+                res.render('panchangview');
+            }catch(error){
+                res.status(400).json({message: error.message})
+            }
+        }
+
 
 
 
