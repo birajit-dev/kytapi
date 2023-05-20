@@ -24,7 +24,7 @@
     </script>
   </head>
 
-    <body>
+    <body x-data class="is-header-blur" x-bind="$store.global.documentBody">
             {{>header}} 
                     {{{body}}}
             
