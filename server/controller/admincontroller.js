@@ -461,3 +461,9 @@ const newDate = moment().format('lll');
         }
     }
     
+
+
+    // Know Your Temple Admin Vides Post API//
+    exports.videoUpload = async(req, res) =>{
+        
+    }
