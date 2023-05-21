@@ -26,6 +26,14 @@ const PanchangModel = require('../model/Panchang');
             }
         }
 
+        exports.testPageView = async(req, res) =>{
+            try{
+                res.render('test');
+            }catch(error){
+                res.status(400).json({message: error.message})
+            }
+        }
+
 
 
 

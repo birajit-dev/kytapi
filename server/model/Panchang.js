@@ -62,42 +62,46 @@ const panchangSchema = new mongoose.Schema({
     directional:{
         type: String,
     },
-    extra_1:{
-        type: Array,
-    },
-    extra_2:{
-        type: Array,
-    },
-    extra_3:{
-        type: Array,
-    },
-    extra_4:{
-        type: Array,
-    },
-    extra_5:{
-        type: Array,
-    },
-    extra_6:{
-        type: Array,
-    },
-    extra_7:{
-        type: Array,
-    },
-    extra_8:{
-        type: Array,
-    },    extra_1:{
-        type: Array,
-    },
-    extra_9:{
-        type: Array,
-    },
-    extra_10:{
-        type: Array,
-    },
+    extra_1:[{
+        heading: String,
+        content: String,
+    }],
+    // extra_2:{
+    //     type: Array,
+    // },
+    // extra_3:{
+    //     type: Array,
+    // },
+    // extra_4:{
+    //     type: Array,
+    // },
+    // extra_5:{
+    //     type: Array,
+    // },
+    // extra_6:{
+    //     type: Array,
+    // },
+    // extra_7:{
+    //     type: Array,
+    // },
+    // extra_8:{
+    //     type: Array,
+    // },    extra_1:{
+    //     type: Array,
+    // },
+    // extra_9:{
+    //     type: Array,
+    // },
+    // extra_10:{
+    //     type: Array,
+    // },
     panchang_thumbnail:{
         type: String,
     },
     update_date:{
+        type: String,
+    },
+    pandeet_name:{
         type: String,
     }
 

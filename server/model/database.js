@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/kyt?directConnection=true", {
+mongoose.connect("mongodb://127.0.0.1:27017/kyt", {
    useNewUrlParser: true,
    useUnifiedTopology: true
 });
