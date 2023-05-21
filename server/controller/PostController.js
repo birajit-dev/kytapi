@@ -59,13 +59,14 @@ const TestModel = require('../model/test');
 
         exports.testPost = async(req, res) =>{
             try{
-                const {auspicious_dates,panchang_date,panchang_day,vikranm_samvat,shak_samvat,ion,season,month,side,p_date,nakshatra,yoga,rahukal,sunrise,sunset,directional,extra_1,extra_2,extra_3,extra_4,extra_5,extra_6,extra_7,extra_8,extra_9,extra_10,panchang_thumbnail,pandeet_name,heading,content} = req.body;
+                const mData = req.body;
                 let uploadPanchang = new TestModel({
-                    auspicious_dates:auspicious_dates,                                                                    
-                    pandeet_name:pandeet_name,                                         
+                    auspicious_dates:mData.auspicious_dates,                      
+                    extra_1:mData.extra_1,                                                    
+                    pandeet_name:mData.pandeet,                                         
                 });
-                await uploadPanchang.save();
-                res.send('Panchang Save Successfully.');
+                uploadPanchang.save();
+                //res.send('Panchang Save Successfully.');
             }catch(error){
                 res.status(400).json({message: error.message})
             }

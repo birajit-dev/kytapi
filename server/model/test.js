@@ -8,6 +8,15 @@ const testSchema = new mongoose.Schema({
     auspicious_dates:{
         type: String,
     },
+    
+    extra_1:{
+        heading:{
+            type: String,
+        },
+        content:{
+            type: String,
+        }
+    },
     pandeet_name:{
         type: String,
     }
